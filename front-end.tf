@@ -5,7 +5,7 @@
 resource "aws_security_group" "prod_web2" {
   name        = "prod-web2"
   description = "Allow standard http and https ports inbount and everything outbound"
-
+  vpc_id      = aws_vpc.main.id
   ingress {
     from_port   = 80
     to_port     = 80
@@ -38,7 +38,7 @@ resource "aws_security_group" "prod_web2" {
 resource "aws_security_group" "prod_web_lb2" {
   name        = "prod-web-lb2"
   description = "Allow standard http and https ports inbount and everything outbound"
-
+  vpc_id      = aws_vpc.main.id
   ingress {
     from_port   = 80
     to_port     = 80
@@ -70,7 +70,7 @@ resource "aws_launch_configuration" "prod_web" {
   image_id        = "ami-096f7a9ab885b50f4"
   instance_type   = "t2.micro"
   security_groups = [aws_security_group.prod_web2.id]
-  key_name        = "Demo"
+  key_name        = "Demo2"
   user_data       = <<-EOF
 #!/bin/bash
 yum update -y
@@ -92,7 +92,7 @@ resource "aws_autoscaling_group" "prod_web" {
   min_size             = 2
   desired_capacity     = 2
   launch_configuration = aws_launch_configuration.prod_web.name
-  vpc_zone_identifier  = [aws_default_subnet.default_az1.id, aws_default_subnet.default_az2.id]
+  vpc_zone_identifier  = [aws_subnet.private_1.id]
 }
 
 #////////////////////////////////
@@ -104,7 +104,7 @@ resource "aws_lb" "prod_web" {
   load_balancer_type = "application"
 
   security_groups = [aws_security_group.prod_web_lb2.id]
-  subnets         = [aws_default_subnet.default_az1.id, aws_default_subnet.default_az2.id]
+  subnets         = [aws_subnet.private_1.id, aws_subnet.private_2.id]
 
   tags = {
     "Terraform" : "true"
@@ -116,7 +116,7 @@ resource "aws_lb_target_group" "prod_web" {
   name     = "prod-web"
   port     = 80
   protocol = "HTTP"
-  vpc_id   = aws_default_vpc.default.id
+  vpc_id   = aws_vpc.main.id
   tags = {
     "Terraform" : "true"
   }
