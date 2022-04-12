@@ -104,7 +104,7 @@ resource "aws_lb" "prod_web" {
   load_balancer_type = "application"
 
   security_groups = [aws_security_group.prod_web_lb2.id]
-  subnets         = [aws_subnet.private_1.id, aws_subnet.private_2.id]
+  subnets         = [aws_subnet.public_1.id, aws_subnet.public_2.id]
 
   tags = {
     "Terraform" : "true"
