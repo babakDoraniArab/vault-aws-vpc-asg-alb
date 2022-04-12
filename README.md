@@ -1,9 +1,8 @@
 # Lets create a complete project with vault from the scratch 
 
-- [x]   create vpc and subnets ,internet gateway ,nat , eip  
-- [ٓٓx]  front end server asg-alb
-- [ ]  route53 and domain configuration 
-- [ ]  basic backend configuration ( just an EC2)
+- [x]  create vpc and subnets ,internet gateway ,nat , eip  
+- [x]  front end server asg-alb
+- [x]  route53 and domain configuration 
 - [ ]  configure Amazon RDS 
 - [ ]  test all the infrastructure without vault 
 - [ ]  install vault with asg- elb and ansible basic configuration
@@ -12,3 +11,4 @@
 
 
 # todo
+- [ ] create seprate file  
