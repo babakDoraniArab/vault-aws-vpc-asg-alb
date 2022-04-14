@@ -1,6 +1,6 @@
 resource "aws_db_subnet_group" "database-subnet-group"{
   name = "database subnets"
-  subnet_ids = [ids from vpc module]
+  subnet_ids = [var.subnet_ids]
   description = "subnet for Database Instance "
 
   tags = {

@@ -5,3 +5,7 @@ variable "username" {
 variable "password" {
   default = "password"
 }
+
+variable "subnet_ids"{
+  type = list(string)
+}
