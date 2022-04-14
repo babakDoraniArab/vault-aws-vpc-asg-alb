@@ -3,7 +3,8 @@
 - [x]  create vpc and subnets ,internet gateway ,nat , eip  
 - [x]  front end server asg-alb
 - [x]  route53 and domain configuration 
-- [ ]  configure Amazon RDS 
+- [x]  configure Amazon RDS 
+- [x]  make all the modules for vpc-rds-asg-route53-bastion
 - [ ]  test all the infrastructure without vault 
 - [ ]  install vault with asg- elb and ansible basic configuration
 - [ ]  configure vault for RDS secret 

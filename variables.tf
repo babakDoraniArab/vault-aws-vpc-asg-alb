@@ -42,3 +42,8 @@ variable "password" {
 variable "instance_class" {
   default = "db.t2.micro"
 }
+
+variable "key_name" {
+  default     = "Demo2"
+  description = "it's key_name variable and you can use it to ssh to all the infrastructure"
+}
