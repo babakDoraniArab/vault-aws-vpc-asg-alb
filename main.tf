@@ -1,7 +1,19 @@
 #frist we create a VPC Module 
 
 module "vpc" {
-  source = "./vpc"
+  source              = "./vpc"
+  cidr_vpc            = var.cidr_vpc
+  cidr_public_1       = var.cidr_public_1
+  cidr_public_2       = var.cidr_public_2
+  cidr_private_1      = var.cidr_private_1
+  cidr_private_2      = var.cidr_private_2
+  availability_zone_1 = var.availability_zone_1
+  availability_zone_2 = var.availability_zone_2
+
+
+
+
+
 }
 
 #2nd we create a RDS with the VPC Module output 

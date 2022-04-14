@@ -9,30 +9,6 @@ resource "aws_db_subnet_group" "database-subnet-group" {
   }
 }
 
-# resource "aws_db_instance" "mysql_db" {
-#   identifier        = "mysqldatabase"
-#   storage_type      = "gp2"
-#   allocated_storage = 20
-#   instance_class    = var.instance_class
-# }
-
-
-# resource "aws_db_instance" "the_db" {
-#   engine                 = "mariadb"
-#   engine_version         = "10.5"
-#   instance_class         = var.instance_class
-#   db_name                = "prodmariadb"
-#   identifier             = "prod-mariadb"
-#   username               = var.username
-#   password               = var.password
-#   parameter_group_name   = "default.mariadb10.5"
-#   db_subnet_group_name   = aws_db_subnet_group.database-subnet-group.name
-#   vpc_security_group_ids = [aws_security_group.allow_mariadb.id]
-#   skip_final_snapshot    = true
-#   allocated_storage      = 50
-#   max_allocated_storage  = 1000
-# }
-
 resource "aws_db_instance" "the_db" {
   allocated_storage      = 10
   storage_type           = "gp2"
@@ -61,7 +37,7 @@ resource "aws_security_group" "allow_mariadb" {
     from_port   = 3306
     to_port     = 3306
     protocol    = "tcp"
-    cidr_blocks = ["10.0.0.0/8"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
