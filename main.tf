@@ -6,7 +6,7 @@ module "vpc" {
 
 #2nd we create a RDS with the VPC Module output 
 module "rds" {
-    source = "./rds"
+    source = "./database"
     subnet_ids=[aws_subnet_private_1_id.value]
 
 }
