@@ -1,20 +1,29 @@
-################################
-## bastion output 
-################################
 
-output "bastion_arn" {
-  value     = aws_instance.bastion.arn
+#////////////////////////////////
+#   LoadBalancer
+#////////////////////////////////
+output "aws_lb_arn" {
+  value     = aws_lb.prod_web.arn
   sensitive = false
 }
-output "bastion_private_dns" {
-  value     = aws_instance.bastion.private_dns
+
+output "aws_lb_id" {
+  value     = aws_lb.prod_web.id
   sensitive = false
 }
-output "bastion_public_dns" {
-  value     = aws_instance.bastion.public_dns
+
+output "aws_lb_dns_name" {
+  value     = aws_lb.prod_web.dns_name
   sensitive = false
 }
-output "bastion_public_ip" {
-  value     = aws_instance.bastion.public_ip
+output "aws_lb_arn_suffix" {
+  value     = aws_lb.prod_web.arn_suffix
   sensitive = false
 }
+output "aws_lb_arn_suffix" {
+  value     = aws_lb.prod_web.arn_suffix
+  sensitive = false
+}
+
+
+

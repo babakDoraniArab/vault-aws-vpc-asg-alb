@@ -30,8 +30,8 @@ module "bastion" {
   subnet_id         = module.vpc.aws_subnet_public_1_id
 }
 
-#4th we create a asg-alb infra 
-module "bastion" {
+#4th we create a asg-alb infra (it's not done yet )
+module "asg-alb" {
   source            = "./asg-alb"
   vpc_id            = module.vpc.vpc_id
   key_name          = var.key_name
