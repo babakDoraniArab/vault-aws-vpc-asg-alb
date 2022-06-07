@@ -1,4 +1,5 @@
 # Lets create a complete project with vault from the scratch 
+### code is not practical yet
 
 - [x]  create vpc and subnets ,internet gateway ,nat , eip  
 - [x]  front end server asg-alb
