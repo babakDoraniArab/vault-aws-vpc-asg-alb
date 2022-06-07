@@ -20,10 +20,6 @@ output "aws_lb_arn_suffix" {
   value     = aws_lb.prod_web.arn_suffix
   sensitive = false
 }
-output "aws_lb_arn_suffix" {
-  value     = aws_lb.prod_web.arn_suffix
-  sensitive = false
-}
 
 
 

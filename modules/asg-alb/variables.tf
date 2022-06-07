@@ -17,9 +17,10 @@ variable "alb_sg_cidr_ingress" {
   default = ["0.0.0.0/0"]
 }
 
-variable "var.bastion_sg_security_group_name" {
+variable "bastion_sg_security_group_name" {
   type        = list(string)
-  description = "you need to write the bastion ip address"
+  
+  description = "you need to write the bastion security group names"
 }
 
 
